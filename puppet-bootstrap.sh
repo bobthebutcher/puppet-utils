@@ -4,7 +4,7 @@ WORK_DIR="/tmp";
 PUPPET_VERSION="6";
 
 check_puppet_installed () {
-  if which /opt/puppetlabs/bin/puppet > /dev/null 2>&1; then
+  if [[ -f /opt/puppetlabs/bin/puppet ]]; then
     echo "Puppet is already installed.";
     exit 0;
   fi
