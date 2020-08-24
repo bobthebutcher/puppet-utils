@@ -31,7 +31,10 @@ get_release () {
     if grep -q -E "(Cumulus|Debian|Ubuntu)" /etc/lsb-release; then
       package_manager="apt";
       echo "Debian Family"; 
-      if grep -q "Cumulus" /etc/lsb-release; then
+      if grep -q "bionic" /etc/lsb-release; then
+        echo "Ubuntu Family";
+        os_family="bionic";
+      elif grep -q "Cumulus" /etc/lsb-release; then
         echo "Cumulus Family";
         if grep -q "Cumulus Linux 3." /etc/lsb-release; then
           echo "Jessie Family";
